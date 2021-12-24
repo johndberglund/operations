@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="menu.css">
+<script src="operations.js"></script>
+</head>
+
+<body onload="init()" onresize="resize()">
+<nav>
+<ul>
+  <li class="dropdown"><a>File</a>
+    <ul>
+      <li><a onclick="draw()">New</a>
+      <li><a><input type="file" name="file" id="loadTiling" 
+              class="inputfile" onchange="loadTiling()" />
+        <label for="loadTiling">Load tiling</label></a>
+      <li><a onclick="goSvg()">Save SVG</a>
+      <li><a onclick="goSave()">Save tiling</a>
+    </ul>
+  </li>
+  <li><a href="#home">Help</a></li>
+</ul>
+</nav>
+
+
+
+<div style="float:left; width:140px;">
+<button onclick="squares()">Squares</button>
+<br>
+<button onclick="hexagons()">Hexagons</button>
+<hr>
+<button onclick="dual()">1a=Dual</button>
+<br>
+<button onclick="f2a()">2a</button>
+<button onclick="f3a()">3a</button>
+<button onclick="f4a()">4a</button>
+<button onclick="f4b()">4b</button>
+<button onclick="f5a()">5a</button>
+<button onclick="f5b()">5b</button>
+<button onclick="f5c()">5c</button>
+<button onclick="f5d()">5d</button>
+<br>
+<button onclick="f6a1()">6a1</button>
+<button onclick="f6a2()">6a2</button>
+<button onclick="f6b()">6b</button>
+<button onclick="f6c1()">6c1</button>
+<button onclick="f6c2()">6c2</button>
+<button onclick="f6d()">6d</button>
+<br>
+<button onclick="f7a()">7a</button>
+<button onclick="f7b()">7b</button>
+<button onclick="f7c()">7c</button>
+<button onclick="f7d()">7d</button>
+<button onclick="f7e1()">7e1</button>
+<button onclick="f7e2()">7e2</button>
+<button onclick="f7e3()">7e3</button>
+<button onclick="f7e4()">7e4</button>
+<button onclick="f7f()">7f</button>
+<button onclick="f7g()">7g</button>
+<br>
+<button onclick="f8a()">8a</button>
+<button onclick="f8b()">8b</button>
+<button onclick="f8c1()">8c1</button>
+<button onclick="f8c2()">8c2</button>
+<button onclick="f8d1()">8d1</button>
+<button onclick="f8d2()">8d2</button>
+<button onclick="f8e()">8e</button>
+<button onclick="f8f()">8f</button>
+<button onclick="f8g1()">8g1</button>
+<button onclick="f8g2()">8g2</button>
+<button onclick="f8h1()">8h1</button>
+<button onclick="f8h2()">8h2</button>
+<button onclick="f8i()">8i</button>
+<button onclick="f8j()">8j</button>
+<button onclick="f8k()">8k</button>
+<button onclick="f8L1()">8L1</button>
+<button onclick="f8L2()">8L2</button>
+<button onclick="f8L3()">8L3</button>
+
+
+
+
+
+
+
+<button onclick="makeRegular10Draw()">Make Regular</button>
+<br>
+
+</div>
+
+
+<div id="canvasDiv" style="max-height: 300px; max-width:256px; overflow: auto; border:3px solid red">
+<canvas id="myCanvas"  style="border:1px solid black;"> </canvas>
+</div>
+<p id="commandList" style="border:1px solid black; background-color: #d0d0d0;"></p>
+
+</body>
+
+
+</html>
+
