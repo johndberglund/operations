@@ -374,6 +374,7 @@ function halfkites2polys(halfkites) {
       {currentList.push(halfkite)}
     else
       {
+//alert(currentList);
        var newPoly = makePoly(currentList);
        polys.push(newPoly);
        oldCent = halfkite[0];
@@ -381,6 +382,7 @@ function halfkites2polys(halfkites) {
        currentList.push(halfkite);
       }   
   });
+//alert(currentList);
   var newPoly = makePoly(currentList);
   polys.push(newPoly);
   return(polys);
@@ -537,6 +539,7 @@ function f4a() {
   tiles.polys=polys2kites();
   tiles.polys=polys2kites();
   comList += "4a";
+  dualNoDraw()
   makeRegular10Draw();
 } 
 
@@ -624,6 +627,7 @@ function f5b() {
   polys = polys.concat(newPolys);
   tiles.polys=polys;
   comList += "5b";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f5b
 
@@ -757,6 +761,7 @@ function f6b() {
   polys = polys.concat(newPolys);
   tiles.polys=polys;
   comList += "6b";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f6b
 
@@ -791,6 +796,7 @@ function f6c1() {
   polys = polys.concat(newPolys);
   tiles.polys=polys;
   comList += "6c1.";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f6c1
 
@@ -840,6 +846,7 @@ function f6d() {
   });
   tiles.polys=polys;
   comList += "6d";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f6d
 
@@ -891,6 +898,7 @@ function f7b() {
   polys = polys.concat(newPolys);
   tiles.polys=polys;
   comList += "7b";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f7b
 
@@ -914,6 +922,7 @@ function f7c() {
   });
   tiles.polys=polys;
   comList += "7c";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f7c
 
@@ -921,6 +930,7 @@ function f7d() {
   var polys = [];
   var halfkites = [];
   midpoints = [];
+  dualNoDraw()
   var kites = polys2kites();
   kites.forEach(function(kite) {
     var C1 = kite[0];
@@ -1014,6 +1024,7 @@ function f7e2() {
   polys = polys.concat(newPolys);
   tiles.polys=polys;
   comList += "7e2.";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f7e2
 
@@ -1036,10 +1047,10 @@ function f7e3() {
   });
   tiles.polys=polys;
   comList += "7e3.";
-dualNoDraw() 
-dualNoDraw() 
+  dualNoDraw(); 
+  dualNoDraw();
+  dualNoDraw();
   makeRegular10Draw();
-//draw();
 } // end f7e3
 
 
@@ -1126,6 +1137,7 @@ function f7g() {
   });
   tiles.polys=polys;
   comList += "7g";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f7g
 
@@ -1159,6 +1171,7 @@ function f8a() {
   polys = polys.concat(newPolys);
   tiles.polys=polys;
   comList += "8a";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f8a
 
@@ -1276,6 +1289,7 @@ function f8d1() {
   polys = polys.concat(newPolys);
   tiles.polys=polys;
   comList += "8d1.";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f8d1
 
@@ -1419,6 +1433,7 @@ function f8g1() {
   polys = polys.concat(newPolys);
   tiles.polys=polys;
   comList += "8g1.";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f8g1
 
@@ -1533,6 +1548,7 @@ function f8h2() {
   polys = polys.concat(newPolys);
   tiles.polys=polys;
   comList += "8h2.";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f8h2
 
@@ -1557,6 +1573,7 @@ function f8i() {
   });
   tiles.polys=polys;
   comList += "8i";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f8i
 
@@ -1581,6 +1598,7 @@ function f8j() {
   });
   tiles.polys=polys;
   comList += "8j";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f8j
 
@@ -1610,6 +1628,7 @@ function f8k() {
   polys = polys.concat(newPolys);
   tiles.polys=polys;
   comList += "8k";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f8k
 
@@ -1641,6 +1660,7 @@ function f8L1() {
   polys = polys.concat(newPolys);
   tiles.polys=polys;
   comList += "8L1.";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f8L1
 
@@ -1693,6 +1713,7 @@ function f8L3() {
   });
   tiles.polys=polys;
   comList += "8L3.";
+  dualNoDraw()
   makeRegular10Draw();
 } // end f8L3
 
