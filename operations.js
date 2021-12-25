@@ -1442,6 +1442,7 @@ function f8g2() {
   var polys = [];
   var halfkites = [];
   midpoints = [];
+  dualNoDraw();
   var kites = polys2kites();
   kites.forEach(function(kite) {
     var C1 = kite[0];
