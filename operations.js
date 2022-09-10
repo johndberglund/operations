@@ -4,7 +4,7 @@
 // kite = [center1, vertex1, center2, vertex2] (is clockwise)
 // poly = [vertex1, vertex2, ... vertexN] (done clockwise)
 // halfkiteDeg = [center, vertex1, vertex2, degree of center] (is clockwise)
-// flag = [center, midpoint, vertex] (need to mark if left or right flag)
+// flag = [center, midpoint, vertex] (need to mark if left or right flag. stand at center. look at midpoint. vertex to Left=L)
 
 var Ax;
 var Ay;
@@ -605,7 +605,7 @@ function f5a() {
   makeRegular10Draw();
 } // end f5a
 
-function f5b() {
+function f5b1() {
   var polys = [];
   var newHalfkites = [];
   var flags = [];
@@ -639,9 +639,48 @@ function f5b() {
   var newPolys = halfkites2polys(newHalfkites);
   polys = polys.concat(newPolys);
   tiles.polys=polys;
-  comList += "5b.";
+  comList += "5b1.";
   makeRegular10Draw();
-} // end f5b
+} // end f5b1
+
+
+function f5b2() {
+  var polys = [];
+  var newHalfkites = [];
+  var flags = [];
+  midpoints = [];
+  var halfkites = polys2halfkites();
+  halfkites.forEach(function(halfkite) {
+    var C = halfkite[0];
+    var V1 = halfkite[1];
+    var V2 = halfkite[2];
+    var A1 = findMid(C,V1);
+    var A2 = findMid(C,V2);
+    var B1 = findMid(C,A1);
+    var B2 = findMid(C,A2);
+    var D1 = findMid(A1,V1);
+    var D2 = findMid(A2,V2);
+    var M = findMid(V1,V2);
+    var M1 = findMid(V1,M);
+    var M2 = findMid(M,V2);
+    newHalfkites.push([A1,M1,M2]);
+    flags.push([V1,D1,M1,"L"]); //L
+    flags.push([A1,D1,M1,"R"]); //R
+    flags.push([A1,B1,M2,"L"]); //L
+    flags.push([C,B1,M2,"R"]); //R
+    flags.push([C,B2,M2,"L"]); //L
+    flags.push([A2,B2,M2,"R"]); //R
+    flags.push([A2,D2,M2,"L"]); //L
+    flags.push([V2,D2,M2,"R"]); //R
+  });
+  var newerHalfkites = flags2halfkites(flags);
+  newHalfkites = newHalfkites.concat(newerHalfkites);
+  var newPolys = halfkites2polys(newHalfkites);
+  polys = polys.concat(newPolys);
+  tiles.polys=polys;
+  comList += "5b2.";
+  makeRegular10Draw();
+} // end f5b2
 
 function f5c() {
   var polys = [];
@@ -1849,6 +1888,48 @@ function f8L3() {
   comList += "8L3.";
   makeRegular10Draw();
 } // end f8L3
+
+
+function test() {
+  var polys = [];
+  var newHalfkites = [];
+  var flags = [];
+  midpoints = [];
+  var halfkites = polys2halfkites();
+  halfkites.forEach(function(halfkite) {
+    var C = halfkite[0];
+    var V1 = halfkite[1];
+    var V2 = halfkite[2];
+    var A1 = findMid(C,V1);
+    var A2 = findMid(C,V2);
+    var A3 = findMid(C,A1);
+    var A4 = findMid(C,A2);
+    var M = findMid(V1,V2);
+    var M1 = findMid(M,V1);
+    var M2 = findMid(M,V2);
+    var N = findMid(M,C);
+    var N1 = findMid(N,C);
+    newHalfkites.push([A1,V1,M1]);
+    newHalfkites.push([A1,M1,N]);
+    newHalfkites.push([A1,N,N1]);
+    newHalfkites.push([A2,N1,N]);
+    newHalfkites.push([A2,N,M2]);
+    newHalfkites.push([A2,M2,V2]);
+    newHalfkites.push([M,M2,N]);
+    newHalfkites.push([M,N,M1]);
+    flags.push([A1,A3,N1,"L"]); //L
+    flags.push([C,A3,N1,"R"]); //R
+    flags.push([C,A4,N1,"L"]); //L
+    flags.push([A2,A4,N1,"R"]); //R
+  });
+  var newerHalfkites = flags2halfkites(flags);
+  newHalfkites = newHalfkites.concat(newerHalfkites);
+  var newPolys = halfkites2polys(newHalfkites);
+  polys = polys.concat(newPolys);
+  tiles.polys=polys;
+  comList += "test.";
+  makeRegular10Draw();
+} // end test
 
 
 function txtToFile(content, filename, contentType) {
